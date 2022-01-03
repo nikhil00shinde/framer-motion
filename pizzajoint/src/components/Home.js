@@ -21,5 +21,5 @@ const Home = () => {
 
 export default Home;
 
-// initial attributes ==> that where animination start or from
-// we use animinate property to control where the animination end or animinate to
+// initial attributes ==> that where animation start or from
+// we use animate property to control where the animation end or animate to

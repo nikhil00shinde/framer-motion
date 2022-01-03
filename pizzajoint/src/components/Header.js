@@ -20,7 +20,7 @@ const Header = () => {
 			<motion.div
 				className="title"
 				initial={{ y: -250 }} //it say where we should animate from originally
-				animate={{ y: -10 }} //this is where we animinate to
+				animate={{ y: -10 }} //this is where we animate to
 			>
 				<h1>Pizza Joint</h1>
 			</motion.div>
