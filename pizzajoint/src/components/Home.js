@@ -6,23 +6,14 @@ const Home = () => {
 	return (
 		<motion.div
 			className="home container"
+			initial={{ opacity: 0 }}
 			animate={{
-				rotateZ: 180,
-				opacity: 0.2,
-				marginTop: 100,
+				opacity: 1,
 			}}
 		>
-			<motion.h2 animate={{ fontSize: 50, color: "#ff2994", x: 100, y: -100 }}>
-				Welcome to Pizza Joint
-			</motion.h2>
+			<h2>Welcome to Pizza Joint</h2>
 			<Link to="/base">
-				<motion.button
-					animate={{
-						scale: 1.5,
-					}}
-				>
-					Create Your Pizza
-				</motion.button>
+				<motion.button animate={{}}>Create Your Pizza</motion.button>
 			</Link>
 		</motion.div>
 	);
@@ -30,6 +21,5 @@ const Home = () => {
 
 export default Home;
 
-// kabhi bhi humhe frame motion lgna hain us element pr toh, us element ko motion element bna do
-// add a prop that is animate prop
-// to move, we use x and y property
+// initial attributes ==> that where animination start or from
+// we use animinate property to control where the animination end or animinate to
