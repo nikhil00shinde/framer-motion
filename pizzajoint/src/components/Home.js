@@ -7,9 +7,8 @@ const Home = () => {
 		<motion.div
 			className="home container"
 			initial={{ opacity: 0 }}
-			animate={{
-				opacity: 1,
-			}}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 1.5, duration: 1.5 }}
 		>
 			<h2>Welcome to Pizza Joint</h2>
 			<Link to="/base">
@@ -21,5 +20,10 @@ const Home = () => {
 
 export default Home;
 
-// initial attributes ==> that where animation start or from
-// we use animate property to control where the animation end or animate to
+// Now we want to control the animation like iteration,delay,duration,easing function many more
+// transition attribute => how animation transition from start to end
+
+// ----> delay -> start after delay seconds
+// ----> duration -> from initial to end total time (can be used when type is tween)
+
+// It can also accept props that define which type of animation to use a Tween, Spring or Inertia
