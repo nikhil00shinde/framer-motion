@@ -12,7 +12,15 @@ const Home = () => {
 		>
 			<h2>Welcome to Pizza Joint</h2>
 			<Link to="/base">
-				<motion.button animate={{}}>Create Your Pizza</motion.button>
+				<motion.button
+					whileHover={{
+						scale: 1.1,
+						textShadow: "0px 0px 8px rgb(255,255,255)",
+						boxShadow: "0px 0px 8px rgb(255,255,255)",
+					}}
+				>
+					Create Your Pizza
+				</motion.button>
 			</Link>
 		</motion.div>
 	);
@@ -20,10 +28,6 @@ const Home = () => {
 
 export default Home;
 
-// Now we want to control the animation like iteration,delay,duration,easing function many more
-// transition attribute => how animation transition from start to end
-
-// ----> delay -> start after delay seconds
-// ----> duration -> from initial to end total time (can be used when type is tween)
-
-// It can also accept props that define which type of animation to use a Tween, Spring or Inertia
+// Hum isme hover animation dekhenge
+// hum use karenge whileHover
+// scale , textShadow,borderShadow hum lagyenge

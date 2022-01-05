@@ -30,10 +30,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// another property, we can add to transition is type property -> tween, inertia,spring
-// type jo property voh hamesha change hogi jo animation ko property di hain
-
-//spring --> bouncy  stiffness property(higher the number more stiff it will be)
-// tween --> even transition
-// agar hum ne spring value di hain
