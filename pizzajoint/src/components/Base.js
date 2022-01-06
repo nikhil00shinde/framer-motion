@@ -2,15 +2,41 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// create variant for extracting initial,transition , animate properties
+
+const containerVariant = {
+	hidden: {
+		// basically for initail,we can write initial also
+		x: "100vw",
+		opacity: 0,
+	},
+
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: { type: "spring", delay: 0.5 },
+	},
+};
+
+const nextVariant = {
+	hidden: {
+		x: "-100vw",
+	},
+	visible: {
+		x: 0,
+		transition: { type: "spring", stiffness: 120 },
+	},
+};
+
 const Base = ({ addBase, pizza }) => {
 	const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
 	return (
 		<motion.div
 			className="base container"
-			initial={{ x: "100vw" }}
-			animate={{ x: 0 }}
-			transition={{ type: "spring", delay: 0.5 }}
+			variants={containerVariant}
+			initial="hidden"
+			animate="visible"
 		>
 			<h3>Step 1: Choose Your Base</h3>
 			<ul>
@@ -32,9 +58,9 @@ const Base = ({ addBase, pizza }) => {
 			{pizza.base && (
 				<motion.div
 					className="next"
-					initial={{ x: "-100vw" }}
-					animate={{ x: 0 }} //uske current position ke respect se 0 move karo jo humne dom ko di hain
-					transition={{ type: "spring", stiffness: 120 }}
+					variants={nextVariant}
+					// propogation of properties of initial , animate from parent motion to children motion
+					//here no need to use initial and animate property because in parent it is already defined
 				>
 					<Link to="/toppings">
 						<motion.button
@@ -54,3 +80,9 @@ const Base = ({ addBase, pizza }) => {
 };
 
 export default Base;
+
+// hum isme variants padenge
+// jo animate,initial,transition property nikaal sakte hain into a single object
+// ae allow karte hain variant changes through the DOM
+// they allow us to create timing relationship between parent motion and children motions using transition orchestration properties
+// transition jha par lagate jha pr uski jaroorat hain
