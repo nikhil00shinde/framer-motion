@@ -28,6 +28,18 @@ const nextVariant = {
 	},
 };
 
+const buttonVariants = {
+	hover: {
+		scale: 1.1,
+		textShadow: "0px 0px 8px rgb(255,255,255)",
+		boxShadow: "0px 0px 8px rgb(255,255,255)",
+		transition: {
+			duration: 0.3,
+			yoyo: Infinity,
+		},
+	},
+};
+
 const Base = ({ addBase, pizza }) => {
 	const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
 
@@ -63,13 +75,7 @@ const Base = ({ addBase, pizza }) => {
 					//here no need to use initial and animate property because in parent it is already defined
 				>
 					<Link to="/toppings">
-						<motion.button
-							whileHover={{
-								scale: 1.1,
-								textShadow: "0px 0px 8px rgb(255,255,255)",
-								boxShadow: "0px 0px 8px rgb(255,255,255)",
-							}}
-						>
+						<motion.button variants={buttonVariants} whileHover="hover">
 							Next
 						</motion.button>
 					</Link>
