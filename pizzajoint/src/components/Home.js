@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+const buttonVariants = {
+	hover: {
+		scale: [1, 1.1, 1, 1.1, 1, 1.1, 1],
+		textShadow: "0px 0px 8px rgb(255,255,255)",
+		boxShadow: "0px 0px 8px rgb(255,255,255)",
+	},
+};
+
 const Home = () => {
 	return (
 		<motion.div
@@ -12,13 +20,7 @@ const Home = () => {
 		>
 			<h2>Welcome to Pizza Joint</h2>
 			<Link to="/base">
-				<motion.button
-					whileHover={{
-						scale: 1.1,
-						textShadow: "0px 0px 8px rgb(255,255,255)",
-						boxShadow: "0px 0px 8px rgb(255,255,255)",
-					}}
-				>
+				<motion.button variants={buttonVariants} whileHover="hover">
 					Create Your Pizza
 				</motion.button>
 			</Link>
@@ -28,6 +30,11 @@ const Home = () => {
 
 export default Home;
 
-// Hum isme hover animation dekhenge
-// hum use karenge whileHover
-// scale , textShadow,borderShadow hum lagyenge
+// keyframes
+
+// [0,-20,20,-20,20,0]
+
+// ex:   // visible: {
+// 	x: [0, -20, 20, -20, 20, 0],
+// 	transition: { delay: 2 },
+// },
