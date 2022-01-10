@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const containerVariant = {
 	hidden: {
@@ -29,6 +29,12 @@ const childVariants = {
 	},
 };
 const Order = ({ pizza }) => {
+	const [showTitle, setShowTitle] = useState(true);
+
+	setTimeout(() => {
+		setShowTitle(false);
+	}, 4000);
+
 	return (
 		<motion.div
 			className="container order"
@@ -36,7 +42,12 @@ const Order = ({ pizza }) => {
 			initial="hidden"
 			animate="visible"
 		>
-			<h2>Thank you for your order :)</h2>
+			<AnimatePresence>
+				{showTitle && (
+					<motion.h2 exit={{ y: -1000 }}>Thank you for your order :)</motion.h2>
+				)}
+				{/* the thing on the left must be true in order for the thing right to show */}
+			</AnimatePresence>
 			<motion.p variants={childVariants}>
 				You ordered a {pizza.base} pizza with:
 			</motion.p>
@@ -51,13 +62,6 @@ const Order = ({ pizza }) => {
 
 export default Order;
 
-// Orchestration Property
-// when is orchestration property --> it dictates when this animation should occur in relation to any children elements which animating too.
-// when:"beforeChildren" -> we want to complete this animation before any children animation occur
-// when:"afterChildren"
-
-// staggerChildren -> it stagger the animation of all children by seconds, if each child elements by x amount, so they all animate one after another for nice little effect
-
-// SPRING PROPERTY
-// mass => higher mass means it moves slower
-// damping => strength of opposing force (higher number means less ocsillation)
+// to animate something out of the component or page
+// we use animate presence component => whatever component or tag we want to out
+// exit attribute -> the thing we want to animate out
