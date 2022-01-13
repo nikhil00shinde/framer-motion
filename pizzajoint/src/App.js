@@ -31,7 +31,10 @@ function App() {
 		<>
 			<Header />
 			<Modal showModal={showModal} setShowModal={setShowModal} />
-			<AnimatePresence exitBeforeEnter>
+			<AnimatePresence
+				exitBeforeEnter
+				onExitComplete={() => setShowModal(false)}
+			>
 				<Switch location={location} key={location.key}>
 					<Route path="/base">
 						<Base addBase={addBase} pizza={pizza} />
@@ -53,13 +56,5 @@ function App() {
 
 export default App;
 
-// agar dom se bahar jata hain toh humhe usey animate krna hoga with AnimatePrsence Component
-// it doesn't know when to fire exit animation in Route
-// we need to know when animation route changes
-// hum use karenge useLocation hook from react-router-dom
-//useLocation --> get the information on current route location,whenever the route changes it goona update the information
-// Just keep in mind the purpose useLocation() is getting information from the current route, and it will return these attributes.
-// basically, AnimatePresence tab chalta jab usey pata chalta hain ki kab kab woh dom se hat raha hain
-
-// AnimatePrsence ko props dedo 'exitBeforeEnter'
-// any component that is exiting is complete before we start the enter the next component
+// onExitComplete , when the router change run this function
+// 
