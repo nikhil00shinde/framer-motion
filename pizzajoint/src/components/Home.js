@@ -8,12 +8,8 @@ const buttonVariants = {
 		scale: 1.1,
 		textShadow: "0px 0px 8px rgb(255,255,255)",
 		boxShadow: "0px 0px 8px rgb(255,255,255)",
-		// adding yoyo
 		transition: {
-			// how many keyframes
-			// yoyo: 10,
 			duration: 0.3,
-			// always repeated n never stops
 			yoyo: Infinity,
 		},
 	},
@@ -55,13 +51,4 @@ const Home = () => {
 
 export default Home;
 
-// Repeating animation
-// transition property -> yoyo (allow a animation to rep over n over)
-// yoyo property -> to infinitly repeat an animation
 
-// keyframes -> to do several step in an animation
-// [0,-20,20,-20,20,0]
-// ex:   // visible: {
-// 	x: [0, -20, 20, -20, 20, 0],
-// 	transition: { delay: 2 },
-// },
